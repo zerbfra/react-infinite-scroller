@@ -91,8 +91,8 @@ var InfiniteScroll = (function (_Component) {
       this,
       (InfiniteScroll.__proto__ || Object.getPrototypeOf(InfiniteScroll)).call(
         this,
-        props,
-      ),
+        props
+      )
     );
 
     _this.scrollListener = _this.scrollListener.bind(_this);
@@ -105,20 +105,20 @@ var InfiniteScroll = (function (_Component) {
       value: function componentDidMount() {
         this.pageLoaded = this.props.pageStart;
         this.attachScrollListener();
-      },
+      }
     },
     {
       key: 'componentDidUpdate',
       value: function componentDidUpdate() {
         this.attachScrollListener();
-      },
+      }
     },
     {
       key: 'componentWillUnmount',
       value: function componentWillUnmount() {
         this.detachScrollListener();
         this.detachMousewheelListener();
-      },
+      }
 
       // Set a defaut loader for all your `InfiniteScroll` components
     },
@@ -126,7 +126,7 @@ var InfiniteScroll = (function (_Component) {
       key: 'setDefaultLoader',
       value: function setDefaultLoader(loader) {
         this.defaultLoader = loader;
-      },
+      }
     },
     {
       key: 'detachMousewheelListener',
@@ -139,9 +139,9 @@ var InfiniteScroll = (function (_Component) {
         scrollEl.removeEventListener(
           'mousewheel',
           this.mousewheelListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
-      },
+      }
     },
     {
       key: 'detachScrollListener',
@@ -154,14 +154,14 @@ var InfiniteScroll = (function (_Component) {
         scrollEl.removeEventListener(
           'scroll',
           this.scrollListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
         scrollEl.removeEventListener(
           'resize',
           this.scrollListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
-      },
+      }
     },
     {
       key: 'attachScrollListener',
@@ -178,23 +178,23 @@ var InfiniteScroll = (function (_Component) {
         scrollEl.addEventListener(
           'mousewheel',
           this.mousewheelListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
         scrollEl.addEventListener(
           'scroll',
           this.scrollListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
         scrollEl.addEventListener(
           'resize',
           this.scrollListener,
-          this.props.useCapture,
+          this.props.useCapture
         );
 
         if (this.props.initialLoad) {
           this.scrollListener();
         }
-      },
+      }
     },
     {
       key: 'mousewheelListener',
@@ -204,7 +204,7 @@ var InfiniteScroll = (function (_Component) {
         if (e.deltaY === 1) {
           e.preventDefault();
         }
-      },
+      }
     },
     {
       key: 'scrollListener',
@@ -243,7 +243,7 @@ var InfiniteScroll = (function (_Component) {
             this.props.loadMore((this.pageLoaded += 1));
           }
         }
-      },
+      }
     },
     {
       key: 'calculateTopPosition',
@@ -252,7 +252,7 @@ var InfiniteScroll = (function (_Component) {
           return 0;
         }
         return el.offsetTop + this.calculateTopPosition(el.offsetParent);
-      },
+      }
     },
     {
       key: 'render',
@@ -307,8 +307,8 @@ var InfiniteScroll = (function (_Component) {
           }
         }
         return _react2.default.createElement(element, props, childrenArray);
-      },
-    },
+      }
+    }
   ]);
 
   return InfiniteScroll;
